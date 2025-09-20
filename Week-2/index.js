@@ -90,7 +90,7 @@
 // console.log(hexString);
 
 
- // Base64 Encoding
+//  Base64 Encoding
 
 // const uint8Array = new Uint8Array([72, 101, 108, 108, 111]);
 // const base64Encoded = Buffer.from(uint8Array).toString("base64");
@@ -111,8 +111,73 @@
 // Private Key: a secret code that must be kept confidential. It is used to decrypt data or to create digital signatures. 
 // Algorithms: RSA, ECDSA (Eth and BTC), EdDSA(Sol)
 
+// Creating a Public-Private Keypair
+
+// 1. EdDSA (using @noble/ed25519)
+
+// import * as ed from "@noble/ed25519"
+// async function main() {
+//  // Generate a secure random private key
+//  const privKey = ed.utils.randomPrivateKey();
+//  // Convert the message "hello world" to a Uint8Array
+//  const message = new TextEncoder().encode("hello world");
+//  // Generate the public key from the private key
+//  const pubKey = await ed.getPublicKeyAsync(privKey);
+//  // Sign the message
+//  const signature = await ed.signAsync(message, privKey);
+//  // Verify the signature
+//  const isValid = await ed.verifyAsync(signature, message, pubKey);
+//  // Output the result
+//  console.log(isValid); // Should print `true` if the signature is valid
+// }
+// main();
 
 
+//  2. @solana/web3.js
 
+// import { Keypair } from "@solana/web3.js";
+// import nacl from "tweetnacl";
+// // Generate a new keypair
+// const keypair = Keypair.generate(); // Keypair is a class. You might think that we should define a class with new keyword. But here it is a static function. (tbt later)
+// // Extract the public and private keys
+// const publicKey = keypair.publicKey.toString();
+// const secretKey = keypair.secretKey;
+// // Display the keys
+// console.log("Public Key:", publicKey);
+// console.log("Private Key (Secret Key):", secretKey);
+// // Convert the message "hello world" to a Uint8Array
+// const message = new TextEncoder().encode("hello world");
+// const signature = nacl.sign.detached(message, secretKey);
+// const result = nacl.sign.detached.verify(
+//  message,
+//  signature,
+//  keypair.publicKey.toBytes(),
+// );
+// console.log(result);
 
+// Hierarchical Deterministic (HD) Wallet
+// a type of wallet that can generate a tree of key pairs from a single seed. 
 
+// PROBLEM: 
+// We have to maintain/store multiple public/private keys if you want to have multiple wallets. 
+// SOLUTION: 
+// BIP-32 (Bitcoin Improvement Proposal)
+
+// Mnemonics
+// A mnemonic phrase or a seed phrase is a human-readable string of words used to generate a cryptographic seed. 
+
+// Seed Phrase
+// The seed is a binary number derived from the mnemonic phrase. 
+
+// Derivation Paths
+// Derivation paths specify a systematic way to derive various keys from the master seed.
+// A derivation path is typically expressed in the format like: 
+
+// m / purpose' / coin_type' / account' / change / address_index
+
+// a. m - refers to the master's node, or the root of the HD wallet. 
+// b. purpose - A constant that defines the purpose of the wallet. 
+// c. coin_type - indicates the type of cryptocurrency 
+// d. account - specifies the account number (eg: 0 for the first account, 1 for the second one)
+// e. change - either 0 or 1. (o represents external (receiving addresses) and 1 represents internal (change addresses))
+// f. address_index - a sequential address to generate multiple addresses under the same account. 
