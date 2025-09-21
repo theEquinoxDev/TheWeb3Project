@@ -58,7 +58,7 @@ console.log(binaryRepresentation);
 // Lowercase letters: a-z (excluding l )
 // Numbers: 1-9 (excluding 0 )
 
-// Disclaimer: The codes aren't necessary to be written by you scratch everytime. You will get direct conversion functions in cryptolibraries
+// Disclaimer: The codes aren't necessary to be written by you from scratch everytime. You will get direct conversion functions in cryptolibraries
 
 // UInt8Array to ascii
 
