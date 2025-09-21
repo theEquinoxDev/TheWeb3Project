@@ -1,22 +1,22 @@
 // Representing bits and bytes in JS
 
 // 1. Bit
-// const x = 0;
-// console.log(x);
+const xBit = 0;
+console.log(xBit);
 
 // 2. Byte
-// const x = 202;
-// console.log(x);
+const xByte = 202;
+console.log(xByte);
 
 // 3. Array of Bytes
-// const bytes = [202, 244, 1, 23];
-// console.log(bytes);
+const bytesArray = [202, 244, 1, 23];
+console.log(bytesArray);
 
 // UInt8Array
 // A better way to represent an array of bytes is to use a UInt8Array in JS
 
-// let bytes = new Uint8Array([0, 255, 127, 128]);
-// console.log(bytes);
+let bytes = new Uint8Array([0, 255, 127, 128]);
+console.log(bytes);
 
 // Why use UInt8Array over native Arrays ?
 // 1. They use less space. Every number takes 64 bits (8 bytes). But every value in a UInt8Array takes 1 byte.
@@ -26,10 +26,9 @@
 // What do you think happens to the first element here? Does it throw an error?
 // Example with Uint8Array:
 
-
-// let uint8Arr = new Uint8Array([0, 255, 127, 128]);
-// uint8Arr[1] = 300;
-// console.log(uint8Arr); 
+let uint8Arr = new Uint8Array([0, 255, 127, 128]);
+uint8Arr[1] = 300;
+console.log(uint8Arr); 
 // Output: Uint8Array(4) [0, 44, 127, 128]
 
 // Notes:
@@ -41,9 +40,9 @@
 //   300 becomes 44
 // This is different from Uint8ClampedArray, which clamps values to 0–255 instead of wrapping.
 
-// let str = "h";
-// const binaryRepresentation = new TextEncoder().encode(str); // TextEncoder is a class which encodes some text ("h" here) into binary! 
-// console.log(binaryRepresentation);
+let str = "h";
+const binaryRepresentation = new TextEncoder().encode(str); // TextEncoder encodes some text ("h" here) into binary! 
+console.log(binaryRepresentation);
 // maximum value of a byte = 255;
 
 
@@ -55,47 +54,45 @@
 // 4. Base58 It is similar to Base64 but uses a different set of characters to avoid visually similar characters
 // and to make the encoded output more user-friendly
 // Base58 uses 58 different characters: 
-
 // Uppercase letters: A-Z (excluding I and O )
 // Lowercase letters: a-z (excluding l )
 // Numbers: 1-9 (excluding 0 )
-
-
 
 // Disclaimer: The codes aren't necessary to be written by you scratch everytime. You will get direct conversion functions in cryptolibraries
 
 // UInt8Array to ascii
 
-// function bytesToAscii(byteArray) {
-//  return new TextDecoder().decode(byteArray);
-// }
-// // Example usage:
-// const bytes = new Uint8Array([72, 101, 108, 108, 111]); 
-// const asciiString = bytesToAscii(bytes);
-// console.log(asciiString); // Output: "Hello"
+function bytesToAscii(byteArray) {
+ return new TextDecoder().decode(byteArray);
+}
+// Example usage:
+const bytesAscii = new Uint8Array([72, 101, 108, 108, 111]); 
+const asciiString = bytesToAscii(bytesAscii);
+console.log(asciiString); // Output: "Hello"
 
 
 // Array to Hex
 
-// function arrayToHex(byteArray) {
-//     let hexString = '';
-//     for(let i = 0; i < byteArray.length; i++) {
-//         hexString += byteArray[i].toString(16).padStart(2, '0');
-//     }
-//     return hexString;
-// }
-// // example Usage: 
-// const byteArray = new Uint8Array([72, 101, 108, 108, 111]);
-// const hexString = arrayToHex(byteArray);
-// console.log(hexString);
+function arrayToHex(byteArray) {
+    let hexString = '';
+    for (let i = 0; i < byteArray.length; i++) {
+        hexString += byteArray[i].toString(16).padStart(2, '0');
+    }
+    return hexString;
+}
+// example Usage: 
+const byteArray = new Uint8Array([72, 101, 108, 108, 111]);
+const hexString = arrayToHex(byteArray);
+console.log(hexString);
 
 
-//  Base64 Encoding
+// Base64 Encoding
 
-// const uint8Array = new Uint8Array([72, 101, 108, 108, 111]);
-// const base64Encoded = Buffer.from(uint8Array).toString("base64");
-// console.log(base64Encoded); // output: SGVsbg8=
+const uint8Array = new Uint8Array([72, 101, 108, 108, 111]);
+const base64Encoded = Buffer.from(uint8Array).toString("base64");
+console.log(base64Encoded); // output: SGVsbG8=
 // Base64 adds = to pad the output so the length stays a multiple of 4.
+
 
 // Hashing Vs Encryption
 
@@ -110,6 +107,7 @@
 // Public key: It is a string that can be shared with the world openly. 
 // Private Key: a secret code that must be kept confidential. It is used to decrypt data or to create digital signatures. 
 // Algorithms: RSA, ECDSA (Eth and BTC), EdDSA(Sol)
+
 
 // Creating a Public-Private Keypair
 
@@ -179,5 +177,5 @@
 // b. purpose - A constant that defines the purpose of the wallet. 
 // c. coin_type - indicates the type of cryptocurrency 
 // d. account - specifies the account number (eg: 0 for the first account, 1 for the second one)
-// e. change - either 0 or 1. (o represents external (receiving addresses) and 1 represents internal (change addresses))
-// f. address_index - a sequential address to generate multiple addresses under the same account. 
+// e. change - either 0 or 1. (0 represents external (receiving addresses) and 1 represents internal (change addresses))
+// f. address_index - a sequential address to generate multiple addresses under the same account.
