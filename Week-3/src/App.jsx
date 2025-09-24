@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { generateMnemonic, mnemonicToSeedSync } from 'bip39'
+import { generateMnemonic } from 'bip39'
 import { SolanaWallet } from './components/SolanaWallet'
 import { EthWallet } from './components/EthWallet'
 
