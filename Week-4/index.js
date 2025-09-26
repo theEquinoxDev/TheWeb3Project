@@ -12,3 +12,6 @@
 // HTTP Servers are deployed on cloud providers like `GCP, Azure`
 // Smart contracts/programs are deployed on the `blockchain`
 
+// Smart contracts in solana are called programs. 
+
+
