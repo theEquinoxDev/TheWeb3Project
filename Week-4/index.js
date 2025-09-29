@@ -57,3 +57,58 @@
 // . Account with lamports but no data
 // . Account with executable code (programs)
 
+
+// Rent on Solana Blockchain
+
+// It is a mechanism on the Sol blockchain that ensures efficient usage of the resources. It requires accounts to maintain a minimum balance proportional to the amount of data they store on the network. 
+
+// 1. Rent (on-chain storage fee)
+
+// Some blockchains (like Solana) charge a small ongoing fee called “rent” for storing data on-chain.
+// It prevents inactive or spam accounts from taking up permanent storage.
+// If rent isn’t paid, the account/data can eventually be purged.
+/// Rent is refundable. 
+
+// 2. Purpose of Rent
+// Blockchain storage is expensive and replicated across many nodes.
+// Rent discourages spam and keeps storage usage efficient.
+
+// 3. Rent Exemption Amount
+// Instead of paying rent continuously, you can deposit a minimum balance of the native token (e.g., SOL on Solana) into the account.
+// This balance makes the account rent-exempt.
+// Rent-exempt accounts do not pay rent and will not be deleted, as long as the balance stays above the exemption threshold.
+
+// ##. RPC Basics
+
+// RPC stands for Remote Procedure Call.
+// In Web3, it’s a protocol that allows your application (like a web app or script) to communicate with a blockchain node.
+// Essentially, it’s like sending a request to the blockchain to read data (like balances or transactions) or write data (like sending a transaction).
+
+// 2. RPC URL
+// The RPC URL is the endpoint (web address) of a blockchain node.
+// Your Web3 app uses this URL to connect to the blockchain.
+
+// 1. Mainnet
+// Definition: The main network of a blockchain where real transactions with real value happen.
+// Purpose: This is the “live” blockchain used by everyone.
+// Example:
+// Ethereum Mainnet (https://mainnet.infura.io/...)
+// Bitcoin Mainnet
+// Key point: Transactions here cost real money (gas fees).
+
+// 2. Testnet / Devnet
+// These are networks used for development and testing. They mimic the mainnet but use fake tokens.
+
+// a) Testnet
+// Public network for developers to test smart contracts and apps safely.
+// Popular Ethereum testnets:
+// Goerli
+// Sepolia
+// Key point: You can get test Ether for free from faucets; nothing here is “real” money.
+
+// b) Devnet / Localnet
+// A private or local blockchain instance for development.
+// Example tools:
+// Hardhat Network (Ethereum local development)
+// Ganache
+// Key point: Fast, free, and you control the environment. Great for unit tests and simulations.
