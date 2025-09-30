@@ -112,3 +112,9 @@
 // Hardhat Network (Ethereum local development)
 // Ganache
 // Key point: Fast, free, and you control the environment. Great for unit tests and simulations.
+
+// Web2 Data Model
+// In the web2 world, you store data in SQL/NoSQL databases.
+
+// Web3 Data Model
+// solana stores all the data of the same app / same program in various accounts. 
