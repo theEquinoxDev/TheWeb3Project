@@ -122,8 +122,47 @@
 // We usually have our databases on cloud platforms like AWS. 
 // We just give some queries and the data gets inserted, deleted, whatever we want. 
 
-// Web3 Data Model
+// Web3 Data Model (specifically Solana)
 // solana stores all the data of the same app / same program in various accounts. 
 // In account, we deploy our programs/smart contracts by executable: true . 
 // Whenever a new user signs up, they have to create a new account. 
 // Taking the example of a Todo app, if we have to create a new todo, then a new account is created every single time. WE can merge them but that's a bad idea, reason is UX. It would be very hard for us to manage the details of the account. So, we just ask for rent (fees) everytime they want to store any data. 
+
+// Transaction vs Instruction
+
+// Transactions
+
+// A transaction in Solana is a bundle that includes one or more instructions. Transactions are used to submit operations or changes to the network. They can be simple, such as transferring SOL between accounts, or complex. 
+
+// Instructions
+// The core operations that the transaction will execute.
+
+// What is a token? 
+// A token is a digital asset that lives on a blockchain. A token is not the same as the blockchain itself.
+// Example: Ethereum is the blockchain → USDC (a stablecoin) is a token on top of Ethereum.
+
+// What is a Token Program? 
+
+// The token program is like a set of rules that explains how tokens work on a blockchain.
+
+// It defines things like:
+// . How to create new tokens.
+// . How to transfer tokens.
+// . Who owns how many tokens.
+
+// Token Mint
+// It’s like a bank that has the athority to create more coins. It can also have the authority to freeze coins
+
+// What is a Mint Account?
+
+// A mint account is the “master account” for a token.
+// It acts as the blueprint or factory for producing tokens.
+// It does not hold tokens itself. Instead, it records:
+// Total supply (how many exist).
+// Decimals (e.g., 2 decimals → 1.00).
+// Who can mint (the mint authority).
+// Without a mint account, the blockchain doesn’t know:
+// . How many tokens exist.
+// . Who is allowed to create new ones.
+// . What the token represents.
+// All of these have the same size. 
