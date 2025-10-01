@@ -13,6 +13,7 @@
 // HTTP Servers are deployed on cloud providers like `GCP, Azure`
 // Smart contracts/programs are deployed on the `blockchain`
 // Smart contracts in solana are called programs.
+// Smart contracts are nothing but backend applications deployed on blockchains. 
 
 // A Simple ETH smart contract
 
@@ -113,8 +114,16 @@
 // Ganache
 // Key point: Fast, free, and you control the environment. Great for unit tests and simulations.
 
+// Airdrop: You can drop some solana (not real) for free for deploying an application, etc.
+
+
 // Web2 Data Model
 // In the web2 world, you store data in SQL/NoSQL databases.
+// We usually have our databases on cloud platforms like AWS. 
+// We just give some queries and the data gets inserted, deleted, whatever we want. 
 
 // Web3 Data Model
 // solana stores all the data of the same app / same program in various accounts. 
+// In account, we deploy our programs/smart contracts by executable: true . 
+// Whenever a new user signs up, they have to create a new account. 
+// Taking the example of a Todo app, if we have to create a new todo, then a new account is created every single time. WE can merge them but that's a bad idea, reason is UX. It would be very hard for us to manage the details of the account. So, we just ask for rent (fees) everytime they want to store any data. 
