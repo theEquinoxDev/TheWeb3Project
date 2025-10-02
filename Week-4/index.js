@@ -166,3 +166,19 @@
 // . Who is allowed to create new ones.
 // . What the token represents.
 // All of these have the same size. 
+
+// ### Associated token account
+// Before you can ask other people to send you a token, you need to create an `associated token account` for that token and your public key.
+
+// Steps to create a token, mint it and sending to a friend from cli. 
+
+// . Create a new cli wallet - solana-keygen new
+// . set the RPC url - solana config set --url https://api.devnet.solana.com
+// . airdrop yourself some solana - solana airdrop 1
+// . Check your balance - solana balance
+// . Create token mint - spl-token create-token
+// . Verify token mint on chain - (solana.explorer.com)
+// . check the supply of the token - spl-token supply  FCsh8ozMf1Z3tnucRfP37hecHD7EFGhDDbmEzcCNTo1c
+// . Create an associated token account - spl-token create-account FCsh8ozMf1Z3tnucRfP37hecHD7EFGhDDbmEzcCNTo1c
+// . spl-token mint  FCsh8ozMf1Z3tnucRfP37hecHD7EFGhDDbmEzcCNTo1c 100
+// . Check your balance in the explorer. 
