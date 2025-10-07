@@ -91,7 +91,7 @@
 
 // 1. Mainnet
 // Definition: The main network of a blockchain where real transactions with real value happen.
-// Purpose: This is the “live” blockchain used by everyone.
+// Purpose: This is the "live" blockchain used by everyone.
 // Example:
 // Ethereum Mainnet (https://mainnet.infura.io/...)
 // Bitcoin Mainnet
@@ -161,6 +161,7 @@
 // Total supply (how many exist).
 // Decimals (e.g., 2 decimals → 1.00).
 // Who can mint (the mint authority).
+
 // Without a mint account, the blockchain doesn’t know:
 // . How many tokens exist.
 // . Who is allowed to create new ones.
