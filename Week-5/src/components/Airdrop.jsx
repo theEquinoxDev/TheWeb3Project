@@ -11,6 +11,9 @@ export function Airdrop() {
   async function sendAirdrop(e) {
     const amount = document.getElementById("publicKey").value
     await connection.requestAirdrop(wallet.publicKey, amount * 1000); // here it wont send 1000 sol. it would send 1000 lamports. which is 10^9 sol. 
+    if(!amount) {
+     return alert("Enter amount");
+    }
     alert("Airdrop Successful!");
   }
 
