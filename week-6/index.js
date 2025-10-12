@@ -28,3 +28,9 @@
 
 // 1. Create a fresh `mint account`  (a mint account is nothing but a bank account that stores the mint data of a token. )
 // 2. Initialise data inside the `mint account` such that it stores `mint data` (decimals, mintAuthority etc)
+
+// Everything on solana is an account! 
+
+// First we create a new mint account. 
+// then we need to create a new keypair for this new mint account.
+//
