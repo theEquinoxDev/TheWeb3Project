@@ -1,0 +1,81 @@
+Accounts
+
+on solana, all data is stored in what are referred to as "accounts". The way data is organized on solana resembles a key-value store, where each entry in the database is called an account.
+
+## Key points
+
+Accounts can store up to 10MB of data, which can consist of either executable program code or program state.
+Programs (smart contracts) are stateless accounts that store executable code.
+Data accounts are created by programs to store and manage program state.
+Accounts require a rent deposit in SOL, proportional to the amount of data stored, which is fully refundable when the account is closed.
+when u run solana rent 100 on cli, it gives us the minimum amount that is required to store 100 bytes of data.
+
+Every account has a program `owner`. Only the program that owns an account can modify its data or deduct its lamport balance. However, anyone can increase the balance.
+Native programs are built-in programs included with the Solana runtime.
+
+## Account
+
+Each account is identifiable by its unique address, represented as 32 bytes in the format of an [Ed25519](https://ed25519.cr.yp.to/) `PublicKey`. You can think of the address as the unique identifier for the account.
+
+## AccountInfo
+
+Accounts have a [max size of 10MB] and the data stored on every account on Solana has the following structure known as the [AccountInfo]
+AccountInfo structure contains the following fields:
+
+- `lamports`: The balance of the account in lamports (1 SOL = 1,000,000,000 lamports).
+- `data`: The raw data stored in the account, represented as a byte array.
+- `owner`: The public key of the program that owns the account. Only the owning program can modify the account's data and lamport balance.
+- `executable`: A boolean flag indicating whether the account contains executable code (i.e., a program) or not.
+  Even if you store no data, you have to store fields like executable and owner which is why you still have to have a minimum amount of SOL as rent solana rent 0
+
+## Example accounts
+
+- Account with no data (Owner - SystemProgram)
+- Account with some data (Owner - TokenProgram)
+- Program account (Owner - BPF Loader)
+
+# System program
+
+Solana contains a small handful of native programs that are part of the validator implementation and provide various core functionalities for the network.
+When developing custom programs on Solana, you will commonly interact with two native programs, the `System Program` and the `BPF Loader`.
+
+## System program
+
+By default, all new accounts are owned by the System Program The System Program performs several key tasks such as:
+
+- New Account Creation: Only the System Program can create new accounts. for eg: suppose that there is a wallet in the phantom app, so initially when it is empty, it shows that the account does not exist. When we transfer some SOL to that wallet, the system program creates an account for that wallet address.
+
+- Space Allocation: Sets the byte capacity for the data field of each account.
+
+- Assign Program Ownership: Once the System Program creates an account, it can reassign the designated program owner to a different program account. This is how custom programs take ownership of new accounts created by the System Program.
+
+On Solana, a `wallet` is simply an account owned by the System Program. The lamport balance of the wallet is the amount of SOL owned by the account.
+
+### BPF Loader Program
+
+The BPF Loader is the program designated as the "owner" of all other programs on the network, excluding Native Programs. It is responsible for deploying, upgrading, and executing custom programs.
+
+### Authority in Solana Programs
+
+In Solana programs, authorities are entities or accounts that have the right to perform certain actions or make changes within the program.
+
+For example
+
+- Token mint authority - Can mint new tokens
+  1. Token with mint auth
+  2. Token with No mint auth
+- Token freeze authority - Can freeze tokens in an account
+  Upgrade authority - Can upgrade the code of a program.
+
+
+Note: On Ethereum, every smart contract we deploy is immutable. But on Solana, we can upgrade the code of a program if we have the upgrade authority.
+
+### Difference between Mint Authority and Owners
+
+- Owner: The owner of an account is the program that has control over that account. Only the owner program can modify the account's data and lamport balance. For example, if a token account is owned by the Token Program, only the Token Program can update the token balance or other data in that account.
+
+- Mint Authority: The mint authority is a specific role associated with token mints. The mint authority has the power to create (mint) new tokens for that specific token mint. The mint authority can be a different account than the owner of the token mint account. For example, a token mint might have a designated mint authority that can mint new tokens, while the owner of the token mint account is the Token Program.
+
+so, in summary and simple language: 
+- Owner: The program that controls an account and can modify its data.
+- Mint Authority: A special role that can create new tokens for a specific token mint.
