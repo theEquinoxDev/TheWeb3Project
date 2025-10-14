@@ -1,35 +1,24 @@
-// Accounts
+// Transfer lamports from your account to another account
 
-// on solana, all data is stored in what are referred to as "accounts". The way data is organized on solana resembles a key-value store, where each entry in the database is called an account.
+const { Keypair, Connection, SystemProgram, Transaction } = require('@solana/web3.js');
 
-// ## Key points
+const payer = Keypair.fromSecretKey(Uint8Array.from([119,95,195,241,112,192,170,174,60,134,92,203,24,146,194,54,67,214,173,97,202,238,103,186,69,37,25,25,32,210,20,91,163,15,5,103,75,37,249,121,55,186,38,112,202,60,95,37,206,83,95,150,78,250,126,119,223,98,136,34,189,157,30,4]));
 
-// Accounts can store up to 10MB of data, which can consist of either executable program code or program state.
-//     Programs (smart contracts) are stateless accounts that store executable code.
-//     Data accounts are created by programs to store and manage program state.
-// Accounts require a rent deposit in SOL, proportional to the amount of data stored, which is fully refundable when the account is closed.
-// when u run solana rent 100 on cli, it gives us the minimum amount that is required to store 100 bytes of data. 
+const connection = new Connection("https://api.devnet.solana.com");
+async function main() {
+    const newAccount = Keypair.generate();
+    const transaction = new Transaction();
+    transaction.add(
+        SystemProgram.transfer({
+            fromPubkey: payer.publicKey,
+            toPubkey: newAccount.publicKey,
+            lamports: 0.01 * 1000000000,
+        }),
+    );
 
-// Every account has a program `owner`. Only the program that owns an account can modify its data or deduct its lamport balance. However, anyone can increase the balance.
-// Native programs are built-in programs included with the Solana runtime.
+    await connection.sendTransaction(transaction, [payer]);
+    console.log(`Transferred to  ${newAccount.publicKey.toBase58()}`);
+}
 
-// ## Account
+main();
 
-// Each account is identifiable by its unique address, represented as 32 bytes in the format of an [Ed25519](https://ed25519.cr.yp.to/) `PublicKey`. You can think of the address as the unique identifier for the account.
-
-// ## AccountInfo
-
-// Accounts have a [max size of 10MB] and the data stored on every account on Solana has the following structure known as the [AccountInfo]
-// AccountInfo structure contains the following fields:
-// - `lamports`: The balance of the account in lamports (1 SOL = 1,000,000,000 lamports).
-// - `data`: The raw data stored in the account, represented as a byte array.
-// - `owner`: The public key of the program that owns the account. Only the owning program can modify the account's data and lamport balance.
-// - `executable`: A boolean flag indicating whether the account contains executable code (i.e., a program) or not.
-// Even if you store no data, you have to store fields like executable and owner which is why you still have to have a minimum amount of SOL as rent solana rent 0
-
-// ## Example accounts
-
-// - Account with no data (Owner - SystemProgram)
-// - Account with some data (Owner - TokenProgram)
-// - Program account (Owner - BPF Loader)
-    
