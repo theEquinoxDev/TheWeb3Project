@@ -54,6 +54,7 @@ On Solana, a `wallet` is simply an account owned by the System Program. The lamp
 ### BPF Loader Program
 
 The BPF Loader is the program designated as the "owner" of all other programs on the network, excluding Native Programs. It is responsible for deploying, upgrading, and executing custom programs.
+When you deploy a new program, the BPF Loader creates a new account to store the program's executable code and assigns itself as the owner of that account. This allows the BPF Loader to manage the lifecycle of the program, including upgrades and execution.
 
 ### Authority in Solana Programs
 
@@ -68,7 +69,10 @@ For example
   Upgrade authority - Can upgrade the code of a program.
 
 
+
+
 Note: On Ethereum, every smart contract we deploy is immutable. But on Solana, we can upgrade the code of a program if we have the upgrade authority.
+
 
 ### Difference between Mint Authority and Owners
 
@@ -79,3 +83,4 @@ Note: On Ethereum, every smart contract we deploy is immutable. But on Solana, w
 so, in summary and simple language: 
 - Owner: The program that controls an account and can modify its data.
 - Mint Authority: A special role that can create new tokens for a specific token mint.
+
