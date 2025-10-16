@@ -1,0 +1,17 @@
+# Dapp
+A dapp is a decentralized application that runs on a blockchain network, leveraging smart contracts to facilitate trustless interactions between users. Unlike traditional applications that rely on centralized servers, dapps operate on a peer-to-peer network, ensuring transparency, security, and immutability of data.
+
+in simple terms: A dapp is an application that is not controlled by a single entity but instead runs on a blockchain, making it more secure and transparent.
+
+## Key Features of Dapps:
+1. **Decentralization**: Dapps operate on a decentralized network, meaning no single entity has control over the application.
+2. **Open Source**: The codebase of dapps is typically open source, allowing    anyone to inspect, modify, and contribute to the development of the application.    
+3. **Smart Contracts**: Dapps utilize smart contracts to automate processes and enforce rules without the need for intermediaries.
+
+## Flow of a Dapp:
+1.  Users interact with the dapp through a user interface, which can be a web or mobile application.
+2.  When a user performs an action (e.g., sending tokens, voting), the dapp creates a transaction that is signed with the user's private key.
+3.  Dapp requests the user's wallet (e.g., MetaMask) to approve and send the transaction to the blockchain network.
+4.  User approves the transaction in their wallet and sends it to the blockchain.
+
+Any website can be called a dapp as long as it requests a transaction from the user's wallet.
