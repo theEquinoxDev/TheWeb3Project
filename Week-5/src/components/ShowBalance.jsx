@@ -8,7 +8,7 @@ export function ShowBalance() {
   async function getBalance() {
     if(wallet.publicKey) {
         const balance = await connection.getBalance(wallet.publicKey);
-        document.getElementById("balance").innerHTML = balance / LAMPORTS_PER_SOL;
+        document.getElementById("balance").innerHTML = balance / LAMPORTS_PER_SOL; // if not divided, then it will give the answer in lamports
     }
   }
   getBalance();
