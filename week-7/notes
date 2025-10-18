@@ -84,3 +84,9 @@ so, in summary and simple language:
 - Owner: The program that controls an account and can modify its data.
 - Mint Authority: A special role that can create new tokens for a specific token mint.
 
+### Example of Authority in Solana
+- Token Mint Authority: An account that has the authority to mint new tokens for a specific token mint.
+- Token Freeze Authority: An account that has the authority to freeze token transfers for a specific token mint.
+- Upgrade Authority: An account that has the authority to upgrade the code of a specific program. 
+- Account Owner: The program that owns and controls a specific account.
+- Wallet Owner: The user who controls a wallet account owned by the System Program.
