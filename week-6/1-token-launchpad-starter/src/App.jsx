@@ -19,8 +19,6 @@ function App() {
                 justifyContent: 'space-between',
                 padding: 20
               }}>
-                
-                
           <WalletMultiButton/>
           <WalletDisconnectButton/>
           </div>

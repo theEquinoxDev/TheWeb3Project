@@ -17,6 +17,7 @@ export function TokenLaunchpad() {
     const lamports = await getMinimumBalanceForRentExemptMint(connection);
     const keypair = Keypair.generate();
 
+    
     // you create a new mint account
     // you then first create a new keypair for this new mint account
 
