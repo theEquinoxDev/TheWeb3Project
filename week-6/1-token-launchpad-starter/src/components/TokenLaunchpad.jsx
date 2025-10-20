@@ -1,11 +1,13 @@
 import {
-  createMint,
   getMinimumBalanceForRentExemptMint,
+  TOKEN_PROGRAM_ID,
+  createInitializeMint2Instruction,
+  MINT_SIZE
 } from "@solana/spl-token";
-import { useWallet } from "@solana/wallet-adapter-react";
+import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import {
+  Connection,
   Keypair,
-  sendAndConfirmTransaction,
   SystemProgram,
   Transaction,
 } from "@solana/web3.js";
@@ -13,38 +15,45 @@ import {
 export function TokenLaunchpad() {
   const wallet = useWallet();
 
+  const { connection } = useConnection();
+
   async function createToken() {
+    const name = document.getElementById("name").value;
+    const symbol = document.getElementById("symbol").value;
+    const imageUrl = document.getElementById("imageUrl").value;
+    const initialSupply = document.getElementById("initialSupply").value;
+
     const lamports = await getMinimumBalanceForRentExemptMint(connection);
     const keypair = Keypair.generate();
 
-    
-    // you create a new mint account
-    // you then first create a new keypair for this new mint account
-
     const transaction = new Transaction().add(
       SystemProgram.createAccount({
-        fromPubkey: payer.publicKey,
+        fromPubkey: wallet.publicKey,
         newAccountPubkey: keypair.publicKey,
         space: MINT_SIZE,
         lamports,
-        programId: TOKEN_PROGRAM_ID, // who owns this account?
+        programId: TOKEN_PROGRAM_ID,
       }),
       createInitializeMint2Instruction(
         keypair.publicKey,
-        decimals,
-        mintAuthority,
-        freezeAuthority,
-        programId
-      )
+        6,
+        wallet.publicKey,
+        wallet.publicKey,
+        TOKEN_PROGRAM_ID
+      ) // initializes the mint. means it will put the data in the account.
     );
 
-    transaction.partialSign(keypair);
+    const recentBlockHash = await connection.getLatestBlockhash();
+    transaction.recentBlockhash = recentBlockHash.blockhash;
+    transaction.feePayer = wallet.publicKey;
 
-    await wallet.signTransaction(transaction);
+
+    transaction.partialSign(keypair);
+    wallet.sendTransaction(transaction, connection);
   }
 
   return (
-    <div 
+    <div
       style={{
         height: "100vh",
         display: "flex",
@@ -54,21 +63,21 @@ export function TokenLaunchpad() {
       }}
     >
       <h1>Solana Token Launchpad</h1>
-      <input className="inputText" type="text" placeholder="Name"></input>{" "}
+      <input id="name" className="inputText" type="text" placeholder="Name"></input>{" "}
       <br />
-      <input
+      <input id="symbol"
         className="inputText"
         type="text"
         placeholder="Symbol"
       ></input>{" "}
       <br />
-      <input
+      <input id="imageUrl"
         className="inputText"
         type="text"
         placeholder="Image URL"
       ></input>{" "}
       <br />
-      <input
+      <input id="initialSupply"
         className="inputText"
         type="text"
         placeholder="Initial Supply"
