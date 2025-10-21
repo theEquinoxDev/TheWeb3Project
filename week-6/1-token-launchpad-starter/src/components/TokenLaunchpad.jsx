@@ -44,7 +44,8 @@ export function TokenLaunchpad() {
     );
 
     const recentBlockHash = await connection.getLatestBlockhash();
-    transaction.recentBlockhash = recentBlockHash.blockhash;
+    transaction.recentBlockhash = recentBlockHash.blockhash; 
+    // recentBlockhash - It is a unique identifier for the most recent block in the blockchain. It helps ensure that transactions are processed in a timely manner and prevents replay attacks.replay attacks mean that someone could try to submit the same transaction multiple times to manipulate the system.
     transaction.feePayer = wallet.publicKey;
 
 
