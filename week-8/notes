@@ -24,3 +24,9 @@ they are a bunch of words used to derive an address.
 
 2. bump: a number between 1-255
 3. off the curve: The PDA that we are generating doesn't have a private key. 
+
+These are the main properties of PDAs:
+- No Private Key: PDAs do not have an associated private key, making them more secure for certain applications.
+- Program Control: PDAs are controlled by the program that created them, allowing for automated management of funds and data.
+- Deterministic Generation: PDAs can be generated in a predictable manner using seeds and the program ID.
+- Off-Curve Addresses: PDAs are designed to be "off the curve," meaning they cannot be derived from a private key, enhancing security.
