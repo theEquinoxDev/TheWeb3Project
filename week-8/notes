@@ -28,8 +28,9 @@ In solana, pdas are widely used in various applications, such as decentralized f
 1. seeds: in simple terms, seeds are like ingredients you use to create a unique recipe. In the context of PDAs, seeds are pieces of data (like strings or numbers) that you provide to help generate a specific address. By using different combinations of seeds, you can create different PDAs.
 they are a bunch of words used to derive an address. 
 
-2. bump: a number between 1-255
+2. bump: a number between 1-255. using this, we make sure that the address we are generating is valid and off the curve. it keeps running a loop starting from 255 down to 0 until it finds a valid address where the address is off the curve.
 3. off the curve: The PDA that we are generating doesn't have a private key. 
+4. on the curve: An address that has a private key associated with it.
 
 These are the main properties of PDAs:
 - No Private Key: PDAs do not have an associated private key, making them more secure for certain applications.
