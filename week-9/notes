@@ -1,0 +1,42 @@
+# What is a DEX? 
+
+A DEX, or Decentralized Exchange, is a type of cryptocurrency exchange that operates without a central authority. Unlike traditional centralized exchanges (CEXs) where users deposit their funds into the exchange's custody, DEXs allow users to trade directly from their own wallets. This is achieved through smart contracts on blockchain networks, which facilitate peer-to-peer trading.
+
+## Key Features of DEXs
+. Decentralization: DEXs operate on a decentralized network, meaning there is no single point of control or failure. This enhances security and reduces the risk of hacks or fraud.
+. User Control: Users retain control of their private keys and funds, reducing the risk of loss due to exchange insolvency or mismanagement.
+. Privacy: DEXs often require less personal information from users compared to centralized exchanges, enhancing privacy.
+. Transparency: All transactions on a DEX are recorded on the blockchain, providing transparency and auditability.
+
+# DEX vs CEX
+
+1. DEX 
+ - you have the private key of your wallet
+ - no one can censor you/ take your assets (not true for centralized tokens like USDC, USDT)
+ - You have to do private key management yourself (downside)
+ - eg: raydium, meteora, orca
+
+ 2. CEX
+ - you delegate your assets to a central emtity. 
+ - you don't have to do private key management. 
+ - Govt can censor you. you have to do kyc. 
+ - exchange can get hacked. 
+ - eg: binance, coinbase. 
+
+ ## Jargons involved in CEX 
+
+ 1. Order Book: A list of buy and sell orders for a specific asset, organized by price level. It shows the quantity of the asset available at each price point. they exist on zerodha as well as binance. 
+
+ 2. Bids: Orders to buy an asset at a specific price. In an order book, bids are typically listed on the left side.
+
+ 3. Asks: Orders to sell an asset at a specific price. In an order book, asks are typically listed on the right side.
+
+ 4. Spread: The difference between the highest bid price and the lowest ask price in the order book. A narrower spread often indicates higher liquidity.
+
+ 5. Liquidity: The ease with which an asset can be bought or sold in the market without affecting its price. High liquidity typically results in lower spreads and more stable prices. In simple terms, liquidity means how quickly you can convert your asset into cash or another asset without causing a significant price change. It means there are enough buyers and sellers in the market.
+
+ 6. Market Maker: A participant in the market who provides liquidity by placing both buy and sell orders on the order book. Market makers profit from the spread between bids and asks.
+
+ ### Can DEX work the same way as CEX?
+ - No, because too many txns are happpening on chain. Blockchains are too slow to handle order books.
+ 
