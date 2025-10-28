@@ -39,4 +39,21 @@ A DEX, or Decentralized Exchange, is a type of cryptocurrency exchange that oper
 
  ### Can DEX work the same way as CEX?
  - No, because too many txns are happpening on chain. Blockchains are too slow to handle order books.
- 
+ - Also, order books require a lot of liquidity to function effectively, which can be challenging to achieve on a decentralized platform.
+ - Instead, DEXs often use automated market makers (AMMs) to facilitate trading without the need for an order book.
+ - AMMs use liquidity pools and algorithms to determine asset prices and execute trades, allowing for continuous liquidity provision.
+
+ ## Jargons involved in DEX
+    1. Liquidity Pool: A collection of funds locked in a smart contract that provides liquidity for trading pairs on a DEX. Users can contribute assets to these pools and earn fees from trades that occur within the pool.
+
+.. You might be wondering if there is any difference between liquidity pool and liquidity. Simply put, liquidity refers to how easily an asset can be bought or sold in the market without affecting its price. A liquidity pool, on the other hand, is a specific mechanism used in decentralized exchanges (DEXs) to provide that liquidity. It is a collection of funds locked in a smart contract that allows users to trade assets directly from the pool.
+
+    2. Automated Market Maker (AMM): A protocol that uses mathematical formulas to price assets and facilitate trades on a DEX. AMMs rely on liquidity pools rather than order books to enable trading.
+
+    3. Impermanent Loss: A temporary loss of funds experienced by liquidity providers when the price of the assets in the liquidity pool changes compared to when they were deposited. This loss is "impermanent" because it can be mitigated if the prices return to their original state.
+
+    4. Slippage: The difference between the expected price of a trade and the actual price at which the trade is executed. Slippage can occur due to low liquidity or high volatility in the market.
+
+    5. Yield Farming: The practice of earning rewards by providing liquidity to DEXs or other DeFi protocols. Users can earn interest or additional tokens as incentives for contributing their assets to liquidity pools.
+
+    6. Staking: The process of locking up cryptocurrency in a wallet to support the operations of a blockchain network or protocol. In return, stakers often receive rewards or interest on their staked assets.
