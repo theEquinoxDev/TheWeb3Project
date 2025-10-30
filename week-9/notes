@@ -1,8 +1,9 @@
-# What is a DEX? 
+# What is a DEX?
 
 A DEX, or Decentralized Exchange, is a type of cryptocurrency exchange that operates without a central authority. Unlike traditional centralized exchanges (CEXs) where users deposit their funds into the exchange's custody, DEXs allow users to trade directly from their own wallets. This is achieved through smart contracts on blockchain networks, which facilitate peer-to-peer trading.
 
 ## Key Features of DEXs
+
 . Decentralization: DEXs operate on a decentralized network, meaning there is no single point of control or failure. This enhances security and reduces the risk of hacks or fraud.
 . User Control: Users retain control of their private keys and funds, reducing the risk of loss due to exchange insolvency or mismanagement.
 . Privacy: DEXs often require less personal information from users compared to centralized exchanges, enhancing privacy.
@@ -10,50 +11,83 @@ A DEX, or Decentralized Exchange, is a type of cryptocurrency exchange that oper
 
 # DEX vs CEX
 
-1. DEX 
- - you have the private key of your wallet
- - no one can censor you/ take your assets (not true for centralized tokens like USDC, USDT)
- - You have to do private key management yourself (downside)
- - eg: raydium, meteora, orca
+1. DEX
 
- 2. CEX
- - you delegate your assets to a central emtity. 
- - you don't have to do private key management. 
- - Govt can censor you. you have to do kyc. 
- - exchange can get hacked. 
- - eg: binance, coinbase. 
+- you have the private key of your wallet
+- no one can censor you/ take your assets (not true for centralized tokens like USDC, USDT)
+- You have to do private key management yourself (downside)
+- eg: raydium, meteora, orca
 
- ## Jargons involved in CEX 
+2.  CEX
 
- 1. Order Book: A list of buy and sell orders for a specific asset, organized by price level. It shows the quantity of the asset available at each price point. they exist on zerodha as well as binance. 
+- you delegate your assets to a central entity.
+- you don't have to do private key management.
+- Govt can censor you. you have to do kyc.
+- exchange can get hacked.
+- eg: binance, coinbase.
 
- 2. Bids: Orders to buy an asset at a specific price. In an order book, bids are typically listed on the left side.
+## Jargons involved in CEX
 
- 3. Asks: Orders to sell an asset at a specific price. In an order book, asks are typically listed on the right side.
+1.  Order Book: A list of buy and sell orders for a specific asset, organized by price level. It shows the quantity of the asset available at each price point. they exist on zerodha as well as binance.
 
- 4. Spread: The difference between the highest bid price and the lowest ask price in the order book. A narrower spread often indicates higher liquidity.
+2.  Bids: Orders to buy an asset at a specific price. In an order book, bids are typically listed on the left side.
 
- 5. Liquidity: The ease with which an asset can be bought or sold in the market without affecting its price. High liquidity typically results in lower spreads and more stable prices. In simple terms, liquidity means how quickly you can convert your asset into cash or another asset without causing a significant price change. It means there are enough buyers and sellers in the market.
+3.  Asks: Orders to sell an asset at a specific price. In an order book, asks are typically listed on the right side.
 
- 6. Market Maker: A participant in the market who provides liquidity by placing both buy and sell orders on the order book. Market makers profit from the spread between bids and asks.
+4.  Spread: The difference between the highest bid price and the lowest ask price in the order book. A narrower spread often indicates higher liquidity. simply put, it is the difference between the price at which you can buy an asset and the price at which you can sell it.
 
- ### Can DEX work the same way as CEX?
- - No, because too many txns are happpening on chain. Blockchains are too slow to handle order books.
- - Also, order books require a lot of liquidity to function effectively, which can be challenging to achieve on a decentralized platform.
- - Instead, DEXs often use automated market makers (AMMs) to facilitate trading without the need for an order book.
- - AMMs use liquidity pools and algorithms to determine asset prices and execute trades, allowing for continuous liquidity provision.
+5.  Liquidity: The ease with which an asset can be bought or sold in the market without affecting its price. High liquidity typically results in lower spreads and more stable prices. In simple terms, liquidity means how quickly you can convert your asset into cash or another asset without causing a significant price change. It means there are enough buyers and sellers in the market.
+    common whale example: Suppose the prices are very low. So, a big whale comes and buys a lot of the asset. Since there are not many sellers, the price goes up significantly. This shows low liquidity. On the other hand, if there are many buyers and sellers, a big whale buying a large amount won't affect the price much, indicating high liquidity.
 
- ## Jargons involved in DEX
-    1. Liquidity Pool: A collection of funds locked in a smart contract that provides liquidity for trading pairs on a DEX. Users can contribute assets to these pools and earn fees from trades that occur within the pool.
+6.  Market Maker: A participant in the market who provides liquidity by placing both buy and sell orders on the order book. Market makers profit from the spread between bids and asks.
+
+### Can DEX work the same way as CEX?
+
+- No, because too many txns are happpening on chain. Blockchains are too slow to handle order books.
+- Also, order books require a lot of liquidity to function effectively, which can be challenging to achieve on a decentralized platform.
+- Instead, DEXs often use automated market makers (AMMs) to facilitate trading without the need for an order book.
+- AMMs use liquidity pools and algorithms to determine asset prices and execute trades, allowing for continuous liquidity provision.
+
+## Jargons involved in DEX
+
+1.  Liquidity Pool: A collection of funds locked in a smart contract that provides liquidity for trading pairs on a DEX. Users can contribute assets to these pools and earn fees from trades that occur within the pool.
+
+the more the liquidity, the better it is for traders (end users) as it reduces slippage and price impact.
 
 .. You might be wondering if there is any difference between liquidity pool and liquidity. Simply put, liquidity refers to how easily an asset can be bought or sold in the market without affecting its price. A liquidity pool, on the other hand, is a specific mechanism used in decentralized exchanges (DEXs) to provide that liquidity. It is a collection of funds locked in a smart contract that allows users to trade assets directly from the pool.
 
-    2. Automated Market Maker (AMM): A protocol that uses mathematical formulas to price assets and facilitate trades on a DEX. AMMs rely on liquidity pools rather than order books to enable trading.
+.. The algorithm that is used to decide the price of assets in a liquidity pool is called Constant product algorithm. The formula is x \* y = k. where x is the reserve token of A, y is the reserve token of B and k is a constant meaning it does not change when the trades are executed.
 
-    3. Impermanent Loss: A temporary loss of funds experienced by liquidity providers when the price of the assets in the liquidity pool changes compared to when they were deposited. This loss is "impermanent" because it can be mitigated if the prices return to their original state.
+.. eg: If people are buying Solana, the price would go up because the reserve of Solana in the pool would decrease. Similarly, if people are selling Solana, the price would go down because the reserve of Solana in the pool would increase. Hence the price of assets in a liquidity pool is determined by the ratio of the reserves of the two assets in the pool. They must always multiply to equal the constant k.
 
-    4. Slippage: The difference between the expected price of a trade and the actual price at which the trade is executed. Slippage can occur due to low liquidity or high volatility in the market.
+### additional jargons
 
-    5. Yield Farming: The practice of earning rewards by providing liquidity to DEXs or other DeFi protocols. Users can earn interest or additional tokens as incentives for contributing their assets to liquidity pools.
+a. markets- trading pairs available on a DEX. eg: SOL/USDC, BTC/USDC, SOL/USDT, etc.
+b. swap - the act of exchanging one cryptocurrency for another on a DEX.
+c. quote - the estimated amount of one asset you will receive when swapping another asset.
+d. slippage- the difference between the expected price of a trade and the actual price at which the trade is executed.
 
-    6. Staking: The process of locking up cryptocurrency in a wallet to support the operations of a blockchain network or protocol. In return, stakers often receive rewards or interest on their staked assets.
+It occurs due to -
+. Market volatility- rapid price changes in the market can lead to slippage.
+. order size - large trades can impact the price more significantly, leading to higher slippage.
+. market conditions - during periods of low trading volume or high demand for a specific asset, slippage is more likely to occur.
+
+slippage can be positive or negative. Positive slippage occurs when a trade is executed at a better price than expected, while negative slippage occurs when a trade is executed at a worse price than expected.
+
+e. slippage tolerance- the maximum acceptable slippage set by the user when executing a trade on a DEX.
+
+2. Automated Market Maker (AMM): A protocol that uses mathematical formulas to price assets and facilitate trades on a DEX. AMMs rely on liquidity pools rather than order books to enable trading.
+
+3. Impermanent Loss: A temporary loss of funds experienced by liquidity providers when the price of the assets in the liquidity pool changes compared to when they were deposited. This loss is "impermanent" because it can be mitigated if the prices return to their original state.
+
+4. Slippage: The difference between the expected price of a trade and the actual price at which the trade is executed. Slippage can occur due to low liquidity or high volatility in the market.
+
+5. Yield Farming: The practice of earning rewards by providing liquidity to DEXs or other DeFi protocols. Users can earn interest or additional tokens as incentives for contributing their assets to liquidity pools.
+
+6. Staking: The process of locking up cryptocurrency in a wallet to support the operations of a blockchain network or protocol. In return, stakers often receive rewards or interest on their staked assets.
+
+
+#### Dex Aggregators
+Dex aggregators are platforms that connect to multiple decentralized exchanges (DEXs) to provide users with the best possible trading rates and liquidity. They work by scanning various DEXs for the most favorable prices and executing trades across these platforms to optimize the user's trade. eg: Jupiter. 
+
+Dex eg: raydium, orca, meteora, etc. 
