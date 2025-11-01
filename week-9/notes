@@ -86,8 +86,8 @@ e. slippage tolerance- the maximum acceptable slippage set by the user when exec
 
 6. Staking: The process of locking up cryptocurrency in a wallet to support the operations of a blockchain network or protocol. In return, stakers often receive rewards or interest on their staked assets.
 
-
 #### Dex Aggregators
-Dex aggregators are platforms that connect to multiple decentralized exchanges (DEXs) to provide users with the best possible trading rates and liquidity. They work by scanning various DEXs for the most favorable prices and executing trades across these platforms to optimize the user's trade. eg: Jupiter. 
 
-Dex eg: raydium, orca, meteora, etc. 
+Dex aggregators are platforms that connect to multiple decentralized exchanges (DEXs) to provide users with the best possible trading rates and liquidity. They work by scanning various DEXs for the most favorable prices and executing trades across these platforms to optimize the user's trade.
+eg: Jupiter.
+Dex eg: raydium, orca, meteora, etc.
