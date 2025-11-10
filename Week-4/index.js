@@ -1,9 +1,9 @@
 // ## Solana Jargon, Programming model, Tokens
 
 // Eth/Sol solves for more than just currencies.
-// They let us swap native currencies.
+// They let us swap native currencies. (native currencies: when we say this, we mean the currency of that particular blockchain. For example, ETH is the native currency of Ethereum blockchain and SOL is the native currency of Solana blockchain.)
 // They let the users program anything.
-// They also let us create and swap tokens.
+// They also let us create and swap tokens. 
 // They let us create and deploy smart contracts so we can do many more different things as well. 
 
 
@@ -182,4 +182,4 @@
 // . check the supply of the token - spl-token supply  FCsh8ozMf1Z3tnucRfP37hecHD7EFGhDDbmEzcCNTo1c
 // . Create an associated token account - spl-token create-account FCsh8ozMf1Z3tnucRfP37hecHD7EFGhDDbmEzcCNTo1c
 // . spl-token mint  FCsh8ozMf1Z3tnucRfP37hecHD7EFGhDDbmEzcCNTo1c 100
-// . Check your balance in the explorer. 
+// . Check your balance in the explorer.  
